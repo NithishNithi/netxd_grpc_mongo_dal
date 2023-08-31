@@ -1,12 +1,12 @@
 package services
 
 import (
-	"Netxd_gRPC_MongoDb/netxd_grpc_mongo_dal/interfaces"
-	"Netxd_gRPC_MongoDb/netxd_grpc_mongo_dal/models"
 	"context"
 	"log"
 	"time"
 
+	"github.com/NithishNithi/netxd_grpc_mongo_dal/netxd_grpc_mongo_dal/interfaces"
+	"github.com/NithishNithi/netxd_grpc_mongo_dal/netxd_grpc_mongo_dal/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
