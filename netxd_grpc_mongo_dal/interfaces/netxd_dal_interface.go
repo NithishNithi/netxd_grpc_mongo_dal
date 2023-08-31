@@ -6,4 +6,5 @@ import (
 
 type ICustomers interface {
 	CreateCustomer(customer *models.Customers) (*models.CustomerResponse, error)
+	MakeTransactions(transaction *models.MakeTransactions)(*models.UpdateResponse,error)
 }

@@ -1,26 +1,14 @@
 package services
 
 import (
-	"context"
 	"log"
 	"time"
 
-	"github.com/NithishNithi/netxd_grpc_mongo_dal/netxd_grpc_mongo_dal/interfaces"
 	"github.com/NithishNithi/netxd_grpc_mongo_dal/netxd_grpc_mongo_dal/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 // CustomerService handles customer-related operations.
-type CustomerService struct {
-	CustomerCollection *mongo.Collection
-	ctx                context.Context
-}
-
-// InitCustomerService initializes a CustomerService instance.
-func InitCustomerService(collection *mongo.Collection, ctx context.Context) interfaces.ICustomers {
-	return &CustomerService{collection, ctx}
-}
 
 // CreateCustomer creates a new customer profile.
 func (p *CustomerService) CreateCustomer(customer *models.Customers) (*models.CustomerResponse, error) {
@@ -30,7 +18,7 @@ func (p *CustomerService) CreateCustomer(customer *models.Customers) (*models.Cu
 	customer.IsActive = "true"
 
 	// Insert customer data into the database.
-	res, err := p.CustomerCollection.InsertOne(p.ctx, customer)
+	res, err := p.CustomerCollection1.InsertOne(p.ctx, customer)
 	if err != nil {
 		log.Fatal(err)
 		return nil, err
@@ -40,7 +28,7 @@ func (p *CustomerService) CreateCustomer(customer *models.Customers) (*models.Cu
 	newUser := &models.CustomerResponse{}
 	query := bson.M{"_id": res.InsertedID}
 
-	err = p.CustomerCollection.FindOne(p.ctx, query).Decode(newUser)
+	err = p.CustomerCollection1.FindOne(p.ctx, query).Decode(newUser)
 	if err != nil {
 		return nil, err // Return nil to handle find error
 	}
