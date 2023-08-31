@@ -23,7 +23,7 @@ type MakeTransactions struct {
 	Transactiontime string	`json:"transactiontime" bson:"transactiontime"`
 }
 type UpdateResponse struct {
-	From_CustomerId_Balance float64	`json:"fromcustomeridbalance" bson:"fromcustomeridbalance"`
-	To_CustomerId_Balance float64	`json:"tocustomeridbalance" bson:"tocustomeridbalance"`
+	From_CustomerId int	`json:"fromcustomerid" bson:"fromcustomerid"`
+	To_CustomerId int	`json:"tocustomerid" bson:"tocustomerid"`
 	Transactiontime string	`json:"transactiontime" bson:"transactiontime"`
 }
