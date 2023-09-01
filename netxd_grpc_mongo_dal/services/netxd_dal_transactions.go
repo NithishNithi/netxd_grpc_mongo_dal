@@ -13,12 +13,12 @@ import (
 var Customer1 struct {
 	CustomerId int     `json:"customerid" bson:"customerid"`
 	Balance    float64 `json:"balance" bson:"balance"`
-	IsActive   bool    `json:"isactive" bson:"isactive"`
+	
 }
 var Customer2 struct {
 	CustomerId int     `json:"customerid" bson:"customerid"`
 	Balance    float64 `json:"balance" bson:"balance"`
-	IsActive   bool    `json:"isactive" bson:"isactive"`
+	
 }
 
 func (p *CustomerService) MakeTransactions(transaction *models.MakeTransactions) (*models.UpdateResponse, error) {
